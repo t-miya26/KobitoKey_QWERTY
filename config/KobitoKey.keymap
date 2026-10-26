@@ -5,73 +5,46 @@
 #include <dt-bindings/zmk/pointing.h>
 
 / {
-    combos {
-        compatible = "zmk,combos";
-
-        combo_eisu {
-            timeout-ms = <50>;
-            key-positions = <12 13>;
-            bindings = <&kp LANG2>;
-        };
-
-        combo_kana {
-            timeout-ms = <50>;
-            key-positions = <16 17>;
-            bindings = <&kp LANG1>;
-        };
-
-        combo_esc {
-            timeout-ms = <50>;
-            key-positions = <0 1>;
-            bindings = <&kp ESC>;
-        };
-
-        combo_tab {
-            timeout-ms = <50>;
-            key-positions = <10 11>;
-            bindings = <&kp TAB>;
-        };
-    };
-
+    /* Windows Japanese 106/109 layout. L3 is activated only by held keys. */
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
-&kp Q      &kp W     &kp E     &kp R        &kp T      &kp Y     &kp U        &kp I      &kp O      &kp P
-&kp A      &kp S     &kp D     &kp F        &kp G      &kp H     &kp J        &kp K      &kp L      &kp SEMI
-&kp Z      &kp X     &kp C     &kp V        &kp B      &kp N     &kp M        &kp COMMA  &kp DOT    &kp APOS
-&kp LSHFT  &kp LALT  &kp LCMD  &lt 2 SPACE  &kp LCTRL  &kp BSPC  &lt 1 ENTER  &kp RSHFT  &kp RSHFT  &mt LALT SLASH
+&kp Q        &kp W     &kp E    &kp R        &kp T            &kp Y        &kp U    &kp I      &kp O       &kp P
+&kp A        &kp S     &kp D    &kp F        &kp G            &kp H        &kp J    &kp K      &kp L       &kp MINUS
+&mt LSHFT Z  &kp X     &kp C    &kp V        &kp B            &kp N        &kp M    &kp COMMA  &kp DOT     &kp SLASH
+&kp LSHFT    &kp LGUI  &mo 3    &lt 2 GRAVE  &mt LCTRL SPACE  &lt 3 ENTER  &mo 1    &kp BSPC   &kp INT_RO  &kp RALT
             >;
         };
 
         layer1 {
-            label = "NUMBER";
+            label = "NAVIGATION";
             bindings = <
-&kp N0     &kp N1  &kp N2  &kp N3     &trans  &kp MINUS  &trans     &kp UP    &trans     &trans
-&kp EQUAL  &kp N4  &kp N5  &kp N6     &trans  &kp PLUS   &kp LEFT   &kp DOWN  &kp RIGHT  &trans
-&trans     &kp N7  &kp N8  &kp N9     &trans  &kp ASTRK  &kp SLASH  &kp LBKT  &kp RBKT   &trans
-&trans     &trans  &trans  &kp LSHFT  &trans  &trans     &trans     &trans    &trans     &trans
+&kp TAB  &trans    &trans  &trans  &trans  &trans  &trans    &kp UP    &trans     &trans
+&trans   &trans    &trans  &trans  &trans  &trans  &kp LEFT  &kp DOWN  &kp RIGHT  &trans
+&trans   &trans    &trans  &trans  &trans  &trans  &trans    &trans    &trans     &trans
+&trans   &kp PSCRN &trans  &trans  &trans  &trans  &trans    &trans    &trans     &trans
             >;
         };
 
         layer2 {
-            label = "FUNCTION";
+            label = "NUM_SYMBOLS_FN";
             bindings = <
-&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp F1   &kp F2   &kp F3  &kp F4  &kp F5
-&trans        &trans        &trans        &trans        &bt BT_CLR      &kp F6   &kp F7   &kp F8  &kp F9  &kp F10
-&trans        &trans        &trans        &trans        &bt BT_CLR_ALL  &kp F11  &kp F12  &trans  &trans  &trans
-&trans        &trans        &trans        &trans        &trans          &kp DEL  &trans   &trans  &trans  &trans
+&kp N1        &kp N2       &kp N3          &kp N4   &kp N5    &kp N6    &kp N7    &kp N8    &kp N9    &kp N0
+&kp EQUAL     &kp INT_YEN  &kp LS(INT_RO)  &kp F10  &kp RBKT  &kp NUHS  &kp LBKT  &kp APOS  &kp SEMI  &kp LS(EQUAL)
+&mt LSHFT F1  &kp F2       &kp F3          &kp F4   &kp F5    &kp F6    &kp F7    &kp F8    &kp F9    &kp F10
+&trans        &trans       &trans          &trans   &trans    &trans    &trans    &kp DEL   &trans    &trans
             >;
         };
 
         layer3 {
-            label = "MOUSE";
+            label = "MOUSE_SETTINGS";
             bindings = <
-&trans     &trans  &trans    &trans    &trans  &trans  &mkp MB1  &mkp MB3  &mkp MB2  &trans
-&trans     &trans  &trans    &trans    &trans  &trans  &trans    &trans    &trans    &trans
-&trans     &trans  &trans    &trans    &trans  &trans  &trans    &trans    &trans    &trans
-&kp LSHFT  &trans  &kp LCMD  &kp LALT  &to 0   &kp N3  &trans    &trans    &to 0     &kp RALT
+&kp ESC  &trans   &trans  &trans  &bt BT_SEL 0  &mkp MB1  &mkp MB3  &mkp MB2  &trans          &trans
+&kp INS  &trans   &trans  &trans  &bt BT_SEL 1  &trans    &trans    &trans    &trans          &trans
+&kp F11  &kp F12  &trans  &trans  &bt BT_SEL 2  &trans    &trans    &trans    &trans          &trans
+&trans   &trans   &trans  &trans  &trans        &trans    &trans    &trans    &bt BT_CLR_ALL  &bt BT_CLR
             >;
         };
     };

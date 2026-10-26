@@ -3,15 +3,19 @@
 小人キーや人キーのケース、TypeSurfer各種の3DデータはReleasesよりダウンロード出来ます。
 ダサい使い方はしないこと。
 
+## キー配列
 
-Layer 0 QWERTY
-<img width="1280" height="690" alt="Image" src="https://github.com/user-attachments/assets/ef0797b7-a63f-4632-912d-9b5d0115769f" />
+Windowsのハードウェアキーボード配列が「日本語106/109キー」の設定で使用する配列です。全キーの割り当ては [config/KobitoKey.keymap](config/KobitoKey.keymap) を参照してください。
 
-Layer 1 NUMBER & ARROW
-<img width="1280" height="690" alt="Image" src="https://github.com/user-attachments/assets/d6347b3c-a238-4278-bacd-e58195774d0e" />
+| レイヤー | 主な内容 | 切り替え方法 |
+| --- | --- | --- |
+| L0 通常 | QWERTY、日本語入力、修飾キー | 通常時の配列 |
+| L1 矢印・編集 | 矢印、Tab、PrintScreen | L0の位置36を押している間 |
+| L2 数字・記号・Fキー | 数字、JIS記号、F1〜F10、Delete | L0の位置33を長押し（短押しは半角/全角） |
+| L3 マウス・設定 | マウスボタン、Bluetooth設定、Esc、Insert、F11・F12 | L0の位置32を押している間、または位置35を長押し（短押しはEnter） |
 
-Layer 2 Bluetooth & FUNCTION
-<img width="1280" height="690" alt="Image" src="https://github.com/user-attachments/assets/f1f7cc93-fbd8-4a98-84ea-c8c36ad3952d" />
+位置番号は0始まりで、各段を左から右へ数えます（上段0〜9、2段目10〜19、3段目20〜29、最下段30〜39）。
 
-Layer 3 AUTO MOUSE
-<img width="1280" height="690" alt="Image" src="https://github.com/user-attachments/assets/2efe5275-e460-41bc-ae45-0c0665435268" />
+ZMKのキー名はUS配列基準です。記号はWindows側の日本語106/109配列で解釈されます。例えば `EQUAL` は `^`、`LS(EQUAL)` は `~` になります。
+
+同時押しコンボはありません。トラックボールによる自動レイヤー切り替えは無効で、L3は上記のキー操作で使用します。右トラックボールはポインター移動、左トラックボールはスクロールです。
